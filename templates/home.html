@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+Url-Shortener-Homepage!
+{% endblock title %}
+{% block body %}
+
+<section>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container input-group mb-3 my-5">
+            <span class="input-group-text" id="basic-addon1">Link:</span>
+            <input type="text" id="long_url" class="form-control" name="long_url" placeholder="Your Link" aria-label="Username"
+                aria-describedby="basic-addon1">
+            <button type="sumbit" id="submit" class="btn btn-success mx-5">Sumbit</button>
+        </div>
+    </form>
+    <div class="container" id="short_url">
+        {% if messages %}
+            {% for message in messages %}
+            <a href="{{ message }}" id="short_url_output"><h3{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</h3></a>
+                {% endfor %}
+        </ul>
+        {% endif %}
+
+    </div>
+</section>
+<!-- <script type="text/javascript" src="/static/js/csrf.js"></script> -->
+<script>
+
+</script>
+{% endblock body %}
